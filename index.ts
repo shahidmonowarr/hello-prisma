@@ -11,6 +11,7 @@ async function main() {
     data: {
       name: "Shahid",
       email: "shahid@gmail.com",
+      age: 25,
     },
   });
   console.log(postUser);
