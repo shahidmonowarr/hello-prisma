@@ -28,3 +28,7 @@ npx prisma generate`
 ## run the server:
 
 `npx ts-node file_name.ts`
+
+## Browse prisma studio:
+
+`npx prisma studio`
