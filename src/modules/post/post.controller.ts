@@ -14,6 +14,34 @@ const createPostController = async (req: Request, res: Response) => {
   }
 };
 
+const updatePostController = async (req: Request, res: Response) => {
+  const id = parseInt(req.params.id);
+  try {
+    const result = await PostService.updatePost(id, req.body);
+    res.send({
+      success: true,
+      message: "Post updated successfully",
+      data: result,
+    });
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+const deletePostController = async (req: Request, res: Response) => {
+  const id = parseInt(req.params.id);
+  try {
+    const result = await PostService.deletePost(id);
+    res.send({
+      success: true,
+      message: "Post deleted successfully",
+      data: result,
+    });
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const getAllPostsController = async (req: Request, res: Response) => {
   console.log(req.query);
   const options = req.query;
@@ -47,4 +75,6 @@ export const PostController = {
   createPostController,
   getAllPostsController,
   getSinglePostController,
+  updatePostController,
+  deletePostController,
 };
