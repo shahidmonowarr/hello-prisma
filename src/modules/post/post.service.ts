@@ -92,10 +92,35 @@ const getSinglePost = async (id: number) => {
   return result;
 };
 
+const learnAggregateAndGrouping = async () => {
+  // aggregation
+  // const result = await prisma.post.aggregate({
+  //   _avg: {
+  //     authorId: true,
+  //   },
+  //   _count: {
+  //     authorId: true,
+  //   },
+  //   _sum: {
+  //     authorId: true,
+  //   },
+  // });
+
+  // grouping
+  const result = await prisma.post.groupBy({
+    by: ["title"],
+    _count: {
+      title: true,
+    },
+  });
+  return result;
+};
+
 export const PostService = {
   createPostService,
   getAllPosts,
   getSinglePost,
   updatePost,
   deletePost,
+  learnAggregateAndGrouping,
 };
