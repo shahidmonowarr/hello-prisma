@@ -32,3 +32,13 @@ npx prisma generate`
 ## Browse prisma studio:
 
 `npx prisma studio`
+
+## For team collaboration:
+
+### to pull the latest changes from the database schema:
+
+`npx prisma db pull`
+
+### to push the latest changes to the database schema:
+
+`npx prisma db push`
